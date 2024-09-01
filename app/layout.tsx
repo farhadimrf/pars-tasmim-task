@@ -20,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={cn("relative h-full antialiased", vazir.className)}>
         <main className="relative flex min-h-screen flex-col">
           <Header />
-          <div className="flex-1 flex-grow bg-bg-color">{children}</div>
+          <div className="flex flex-grow items-center justify-center bg-bg-color">{children}</div>
           <Footer />
         </main>
       </body>

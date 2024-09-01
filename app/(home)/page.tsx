@@ -1,3 +1,9 @@
+import Link from "next/link";
+
 export default function Home() {
-  return <div className="">تست</div>;
+  return (
+    <Link href="/charge" className="text-xl hover:text-blue-500">
+      جهت خرید شارژ لطفا کلید کنید.
+    </Link>
+  );
 }

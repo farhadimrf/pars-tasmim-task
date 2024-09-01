@@ -9,10 +9,13 @@ const config: Config = {
   theme: {
     screens: {
       sm: "576px",
+      md: "768px",
+      lg: "1024px",
     },
     extend: {
       colors: {
         "primary-color": "#FFCC00",
+        "secondary-text-color": "#8B8B8D",
         "bg-color": "#EFEFF4",
       },
     },

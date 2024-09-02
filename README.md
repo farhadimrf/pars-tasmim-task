@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Introduction
 
-## Getting Started
+This repository contains my submission for the assessment task for a front-end position, developed using Next.js 14:
 
-First, run the development server:
+- Implementing Irancell's top-up (charge) service.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+##### This service allows users to recharge their SIM cards by selecting the card type, choosing an amount, selecting a bank, and then completing the payment. After payment, the user is directed to a results page to see the transaction ID. The workflow is implemented to closely resemble the one used by shop.irancell.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Recharge Card System
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+In the first part of the assessment, I utilized several technologies to implementing this task:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### TypeScript
 
-## Learn More
+TypeScript is a typed superset of JavaScript that adds static typing to your code. It helps catch errors at compile time, improving code reliability and reducing runtime bugs. By providing features like type annotations, interfaces, and advanced tooling, TypeScript enhances developer productivity and makes the codebase more maintainable and easier to understand. This ensures a robust development process and a higher-quality end product.
 
-To learn more about Next.js, take a look at the following resources:
+### ESLint and Prettier
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+ESLint is a tool that analyzes your JavaScript code to find and fix problems according to the coding standards you set, ensuring consistent code quality across your project. Prettier is an opinionated code formatter that automatically formats your code to adhere to a consistent style. I configured ESLint and Prettier to work together, allowing ESLint to catch potential issues while Prettier ensures a uniform code style. This setup enhances code readability, reduces stylistic debates, and maintains a clean, error-free codebase.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Husky, Lint-stage and Commitizen
 
-## Deploy on Vercel
+Husky, lint-staged, and Commitizen are tools that streamline and enforce best practices in Git workflows. Husky manages Git hooks, allowing you to run scripts (e.g., tests, linters) before committing code. Lint-staged works with Husky to only lint and fix staged files, ensuring clean code before commits. Commitizen guides you in writing standardized, consistent commit messages, improving project history and communication. Together, these tools help maintain code quality and consistency in your project.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Tailwind CSS
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Tailwind CSS is a utility-first CSS framework that provides a set of pre-designed classes to rapidly build custom user interfaces. I leveraged Tailwind CSS to style the form components and ensure a consistent and visually appealing layout.
+
+### React Hook Form
+
+React Hook Form is a library for managing form state in React applications using hooks. It offers a simple and efficient way to handle form validation, submission, and error handling. I integrated React Hook Form to manage the state and validation logic of the dynamic form, enabling seamless user interactions and validation feedback.
+
+### Zod Validator
+
+Zod is a TypeScript-first schema declaration and validation library. It allows defining robust schemas for data validation and ensures type safety at compile time. I utilized Zod to define the schema for the form data and validate user inputs against the specified schema. This helped maintain data integrity and enforce validation rules, improving the reliability of the form submission process.
+
+## Installation
+
+To get started with the assessment task, follow these steps:
+
+1. **Clone Repository**:
+
+   - Clone the repository from GitHub to your local machine:
+     ```
+     git clone https://github.com/farhadimrf/pars-tasmim-task
+     ```
+
+2. **Install Dependencies**:
+
+   - Navigate to the project directory and install the necessary dependencies using npm:
+     ```
+     cd pars-tasmim-task
+     npm install
+     ```
+
+3. **Run the Application**:
+   - Once the dependencies are installed, you can run the application locally. The UI task is accessible at the main route `/`, while the refactored section is available at the `/refactor` pathname:
+     ```
+     npm run dev
+     ```
+   - The application will start running on port `3000` by default. Open your web browser and navigate to `http://localhost:3000` to view the UI task, or `http://localhost:3000/refactor` to access the refactored section.
+   -
+4. **Visit on vercel**:
+   - Also you can see on vercel [vercel link](https://pars-tasmim-task.vercel.app)

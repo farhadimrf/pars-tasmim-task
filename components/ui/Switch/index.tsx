@@ -10,12 +10,12 @@ interface SwitchProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Switch = forwardRef<HTMLInputElement, SwitchProps>(
-  ({ label, labelClassName, disabled, ...inputProps }, ref) => {
+  ({ label, labelClassName, containerClassName, disabled, ...inputProps }, ref) => {
     return (
       <label
         className={cn(
           "relative flex justify-between items-center p-2 text-xl cursor-pointer",
-          labelClassName,
+          containerClassName,
         )}
       >
         <input

@@ -6,6 +6,7 @@ import { cn } from "@/utils/cn";
 
 type CardTypeSelectorProps = {
   className?: React.ComponentProps<"div">["className"];
+  disabled: boolean;
 };
 type CardItemsType = {
   label: string;
@@ -16,7 +17,7 @@ const cardItems: CardItemsType[] = [
   { label: "دائمی", value: "permanent" },
 ];
 
-const CardTypeSelector: React.FC<CardTypeSelectorProps> = ({ className }) => {
+const CardTypeSelector: React.FC<CardTypeSelectorProps> = ({ className, disabled = false }) => {
   const { register, watch } = useFormContext();
 
   return (
@@ -25,6 +26,7 @@ const CardTypeSelector: React.FC<CardTypeSelectorProps> = ({ className }) => {
       <Box className="border max-w-60 flex gap-2 h-10 rounded-3xl">
         {cardItems.map((card) => (
           <RadioButton
+            disabled={disabled}
             key={card.value}
             label={card.label}
             {...register("cardType")}

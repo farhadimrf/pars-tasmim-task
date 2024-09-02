@@ -9,7 +9,10 @@ const Button = ({
   return (
     <button
       type={type}
-      className={cn("flex items-center justify-center  px-2 py-1 rounded-3xl w-full ", className)}
+      className={cn(
+        "flex items-center justify-center bg-primary-color px-2 font-bold py-2 rounded-3xl w-full ",
+        className,
+      )}
       {...rest}
     >
       <p>{label}</p>

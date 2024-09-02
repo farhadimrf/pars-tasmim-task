@@ -9,7 +9,6 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   disabled?: boolean;
   description?: string;
   error?: boolean;
-  errorText?: string;
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -21,7 +20,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       type = "text",
       disabled,
       error,
-      errorText,
       description,
       ...inputProps
     },
@@ -39,15 +37,18 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           disabled={disabled}
           className={cn(
             "border border-solid w-full placeholder:text-secondary-text-color rounded-full border-gray-300 bg-black/10 focus:outline-none p-3 text-base h-fit",
-            { "opacity-40": disabled },
+            { "opacity-40": disabled, "border-red-500": error },
           )}
         />
         {description && (
-          <span className="text-sm w-full text-center pt-2 text-secondary-text-color ">
+          <span
+            className={cn("text-sm w-full text-center py-1 mt-1 text-secondary-text-color ", {
+              "bg-red-100 border border-red-500 text-red-600 rounded-full": error,
+            })}
+          >
             {description}
           </span>
         )}
-        {error && <span className="text-sm ps-3 pt-1 text-red-500">{errorText}</span>}
       </label>
     );
   },

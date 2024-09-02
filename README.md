@@ -54,11 +54,11 @@ To get started with the assessment task, follow these steps:
      ```
 
 3. **Run the Application**:
-   - Once the dependencies are installed, you can run the application locally. The UI task is accessible at the main route `/`, while the refactored section is available at the `/refactor` pathname:
+   - Once the dependencies are installed, you can run the application locally.
      ```
      npm run dev
      ```
-   - The application will start running on port `3000` by default. Open your web browser and navigate to `http://localhost:3000` to view the UI task, or `http://localhost:3000/refactor` to access the refactored section.
+   - The application will start running on port `3000` by default. Open your web browser and navigate to `http://localhost:3000` to view the UI.
    -
 4. **Visit on vercel**:
    - Also you can see on vercel [vercel link](https://pars-tasmim-task.vercel.app)

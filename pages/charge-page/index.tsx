@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 
@@ -14,6 +15,7 @@ import { rechargeFormResolver, RechargeFormType } from "@/schemas/rechargeSchema
 
 const ChargePage = () => {
   const [isFormValid, setIsFormValid] = useState(false);
+  const router = useRouter();
 
   const methods = useForm<RechargeFormType>({
     defaultValues: { cardType: "credit", price: "10000" },
@@ -21,7 +23,31 @@ const ChargePage = () => {
   });
 
   const onSubmit: SubmitHandler<RechargeFormType> = async (data) => {
-    console.log("first", data);
+    // in this section we send data to backend
+    console.log("Form data", data);
+
+    // fetch mock data and call fake API
+    const fakeAPICall = fetch("/data/mock-data.json")
+      .then((response) => response.json())
+      .then((mockData) => {
+        return new Promise<{ success: boolean; transactionId: string }>((resolve) => {
+          setTimeout(() => {
+            resolve(mockData);
+          }, 1000);
+        });
+      });
+
+    try {
+      const response = await fakeAPICall;
+
+      if (response.success) {
+        router.push(`charge/payment/${response.transactionId}`);
+      } else {
+        console.error("Transaction failed.");
+      }
+    } catch (error) {
+      console.error("Error during transaction:", error);
+    }
   };
 
   const handleValidationForm = async () => {

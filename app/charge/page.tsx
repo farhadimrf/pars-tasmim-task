@@ -1,4 +1,4 @@
-import ChargePage from "@/pages/chargePage";
+import ChargePage from "@/pages/charge-page";
 
 const page = () => {
   return <ChargePage />;

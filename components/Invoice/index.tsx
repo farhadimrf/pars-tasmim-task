@@ -4,8 +4,8 @@ import Box from "@/components/ui/Box";
 
 const Invoice = () => {
   const { watch } = useFormContext();
-  
-return (
+
+  return (
     <Box
       className={`max-w-80 mb-4 md:col-span-2 md:bg-black/10 flex md:border-none flex-col px-4 py-5
          rounded-md border border-primary-color/80 bg-primary-color/30 place-self-center md:place-self-start w-full justify-center`}
@@ -31,7 +31,9 @@ return (
       />
       <InvoiceInformation
         title="نوع شارژ"
-        value={watch("isAmazingCharge") ? "شگفت انگیز" : "معمولی"}
+        value={
+          watch("isAmazingCharge") && watch("cardType") !== "permanent" ? "شگفت انگیز" : "معمولی"
+        }
       />
       <InvoiceInformation title="ایمیل" value={watch("email") ? watch("email") : "---"} />
       <InvoiceInformation

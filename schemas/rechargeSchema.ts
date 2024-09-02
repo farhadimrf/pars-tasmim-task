@@ -5,23 +5,18 @@ const regexPatterns = {
   mobilePattern: /^09[0-9]{9}$/,
 };
 
-const rechargeScheme = z.intersection(
-  z.object({
-    isAmazingCharge: z.boolean().optional(),
-    mobile: z.string().refine((value) => regexPatterns.mobilePattern.test(value)),
-    email: z.string().email().optional(),
-  }),
-  z.discriminatedUnion("cardType", [
-    z.object({
-      cardType: z.literal("credit"),
-      price: z.number().min(10000).max(900000),
-    }),
-    z.object({
-      cardType: z.literal("permanent"),
-      price: z.number().min(10000).max(2000000),
-    }),
-  ]),
-);
+const rechargeScheme = z.object({
+  cardType: z.enum(["credit", "permanent"]),
+  isAmazingCharge: z.boolean().optional(),
+  mobile: z.string().refine((value) => regexPatterns.mobilePattern.test(value)),
+  email: z.string().email().optional(),
+  price: z.string(),
+  customPrice: z
+    .number()
+    .min(10000, { message: "حداقل مبلغ باید ۱۰.۰۰۰ ریال باشد" })
+    .min(2000000, { message: "حداکثر مبلغ باید ۲.۰۰۰.۰۰۰ ریال باشد" })
+    .optional(),
+});
 
 export const rechargeFormResolver = zodResolver(rechargeScheme);
 export type RechargeFormType = z.infer<typeof rechargeScheme>;

@@ -7,15 +7,18 @@ interface RadioButtonProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
-  ({ label, className, ...inputProps }, ref) => {
+  ({ label, className, disabled, ...inputProps }, ref) => {
     return (
       <label
         className={cn(
           "w-full flex cursor-pointer items-center justify-center rounded-full",
           className,
+          {
+            "opacity-50": disabled,
+          },
         )}
       >
-        <input type="radio" {...inputProps} ref={ref} className="hidden" />
+        <input type="radio" disabled={disabled} {...inputProps} ref={ref} className="hidden" />
         {label}
       </label>
     );

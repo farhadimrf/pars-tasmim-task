@@ -29,7 +29,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
   ) => {
     return (
       <label className={cn("flex w-full flex-col items-start p-2", containerClassName)}>
-        <span className={cn("text-base pb-1 ps-1 text-secondary-text-color", labelClassName)}>
+        <span className={cn("text-sm pb-1 ps-1 text-secondary-text-color", labelClassName)}>
           {label}
         </span>
         <input
@@ -43,9 +43,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           )}
         />
         {description && (
-          <span className="text-base ps-3 pt-1 text-secondary-text-color ">{description}</span>
+          <span className="text-sm w-full text-center pt-2 text-secondary-text-color ">
+            {description}
+          </span>
         )}
-        {error && <span className="text-base ps-3 pt-1 text-red-500">{errorText}</span>}
+        {error && <span className="text-sm ps-3 pt-1 text-red-500">{errorText}</span>}
       </label>
     );
   },

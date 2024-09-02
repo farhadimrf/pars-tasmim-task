@@ -19,6 +19,8 @@ const cardItems: CardItemsType[] = [
 const CardTypeSelector: React.FC<CardTypeSelectorProps> = ({ className }) => {
   const { register, watch } = useFormContext();
 
+  console.log("first", watch("isAmazingCharge"));
+
   return (
     <div className={cn("flex flex-col gap-2 items-center justify-center", className)}>
       <h6>نوع سیم کارت</h6>

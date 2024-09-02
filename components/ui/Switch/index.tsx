@@ -14,7 +14,7 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
     return (
       <label
         className={cn(
-          "relative flex justify-between items-center p-2 text-xl cursor-pointer",
+          "relative flex items-center justify-center md:justify-start md:mr-16 mt-3 p-2 text-xl cursor-pointer",
           containerClassName,
         )}
       >

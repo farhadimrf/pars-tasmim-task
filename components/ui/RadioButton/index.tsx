@@ -11,7 +11,7 @@ const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
     return (
       <label
         className={cn(
-          "w-full flex py-1 cursor-pointer items-center justify-center rounded-full",
+          "w-full flex cursor-pointer items-center justify-center rounded-full",
           className,
         )}
       >

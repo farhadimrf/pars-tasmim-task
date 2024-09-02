@@ -19,19 +19,19 @@ const cardItems: CardItemsType[] = [
 const CardTypeSelector: React.FC<CardTypeSelectorProps> = ({ className }) => {
   const { register, watch } = useFormContext();
 
-  console.log("first", watch("isAmazingCharge"));
-
   return (
-    <div className={cn("flex flex-col gap-2 items-center justify-center", className)}>
-      <h6>نوع سیم کارت</h6>
-      <Box className="border  flex gap-2 w-60 rounded-3xl">
+    <div className={cn("flex flex-col gap-3 w-full items-center justify-center", className)}>
+      <h6 className="text-sm text-secondary-text-color">نوع سیم کارت</h6>
+      <Box className="border max-w-60 flex gap-2 h-10 rounded-3xl">
         {cardItems.map((card) => (
           <RadioButton
             key={card.value}
             label={card.label}
             {...register("cardType")}
             value={card.value}
-            className={watch("cardType") === card.value ? "bg-primary-color" : ""}
+            className={cn("text-sm font-bold", {
+              "bg-primary-color": watch("cardType") === card.value,
+            })}
           />
         ))}
       </Box>

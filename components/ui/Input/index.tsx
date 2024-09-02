@@ -29,7 +29,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
   ) => {
     return (
       <label className={cn("flex w-full flex-col items-start p-2", containerClassName)}>
-        <span className={cn("text-base ps-1 text-secondary-text-color", labelClassName)}>
+        <span className={cn("text-base pb-1 ps-1 text-secondary-text-color", labelClassName)}>
           {label}
         </span>
         <input

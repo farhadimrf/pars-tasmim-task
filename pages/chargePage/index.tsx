@@ -3,6 +3,7 @@ import { FormProvider, useForm } from "react-hook-form";
 
 import CardTypeSelector from "@/components/CardTypeSelector";
 import Box from "@/components/ui/Box";
+import Input from "@/components/ui/Input";
 import Switch from "@/components/ui/Switch";
 import { rechargeFormResolver, RechargeFormType } from "@/schemas/rechargeSchema";
 
@@ -22,6 +23,11 @@ const ChargePage = () => {
             {methods.watch("cardType") === "credit" && (
               <Switch {...methods.register("isAmazingCharge")} label="شارژ شگفت انگیز" />
             )}
+            <Input
+              containerClassName="my-4"
+              {...methods.register("mobile")}
+              label="شماره تلفن موبایل"
+            />
           </div>
         </form>
       </FormProvider>

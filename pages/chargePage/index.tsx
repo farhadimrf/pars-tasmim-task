@@ -4,6 +4,7 @@ import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 
 import AmountSection from "@/components/AmountSection";
 import CardTypeSelector from "@/components/CardTypeSelector";
+import Invoice from "@/components/Invoice";
 import SelectBankSection from "@/components/SelectBankSection";
 import Box from "@/components/ui/Box";
 import Button from "@/components/ui/Button";
@@ -15,7 +16,7 @@ const ChargePage = () => {
   const [isFormValid, setIsFormValid] = useState(false);
 
   const methods = useForm<RechargeFormType>({
-    defaultValues: { cardType: "credit", price: "10000", bank: "melat" },
+    defaultValues: { cardType: "credit", price: "10000" },
     resolver: rechargeFormResolver,
   });
 
@@ -72,10 +73,14 @@ const ChargePage = () => {
             <AmountSection disabled={isFormValid} />
             <Input
               disabled={isFormValid}
+              error={methods.formState.errors.email !== undefined}
               label="ایمیل (اختیاری)"
               containerClassName="my-4"
               {...methods.register("email")}
             />
+          </div>
+          <Invoice />
+          <div className="md:col-span-3 max-w-80 flex flex-col place-self-center md:place-self-start w-full justify-center md:mr-16">
             {isFormValid && <SelectBankSection />}
             <Button
               onClick={isFormValid ? undefined : handleValidationForm}
